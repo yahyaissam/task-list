@@ -43,18 +43,18 @@ Route::post('/store', function () {
 // array
 Route::get('tasks', function () {
     $tasks = [
-        'Task 1',
-        'Task 2',
-        'Task 3'
+        'first-task' => 'Task 1',
+        'second-task' => 'Task 2',
+        'third-task' =>  'Task 3'
     ];
     return view('tasks', compact('tasks'));
 });
 
 Route::get('show/{id}', function ($id) {
     $tasks = [
-        'Task 1',
-        'Task 2',
-        'Task 3'
+        'first-task' => 'Task 1',
+        'second-task' => 'Task 2',
+        'third-task' =>  'Task 3'
     ];
 
     $task = $tasks[$id];
