@@ -15,26 +15,12 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/about', function () {
     $name = 'Yahya';
     $name = request('name');
 
-    //    THIRD METHOD
     return view('about', compact('name'));
-
-
-    //      SECOUND METHOD
-    //  return view('about')->with('name',$name);
-
-    //      FIRST METHOD
-    // return view('about',[
-    //     //key => value
-    //     'name' => $name
-    // ]);
-
 });
 
 Route::post('/store', function () {
@@ -44,12 +30,13 @@ Route::post('/store', function () {
 });
 // array
 Route::get('tasks', function () {
-    $tasks = [
-        'first-task' => 'Task 1',
-        'second-task' => 'Task 2',
-        'third-task' =>  'Task 3'
-    ];
-    return view('tasks', compact('tasks'));
+    // $tasks = [
+    //     'first-task' => 'Task 1',
+    //     'second-task' => 'Task 2',
+    //     'third-task' =>  'Task 3'
+    // ];
+    return view('tasks');
+    // , compact('tasks'));
 });
 
 Route::get('show/{id}', function ($id) {
@@ -65,7 +52,6 @@ Route::get('show/{id}', function ($id) {
 Route::get('/', [TaskController::class, 'index'])->name('tasks');
 Route::post('create', [TaskController::class, 'create'])->name('task.create');
 Route::delete('delete/{id}', [TaskController::class, 'destroy'])->name('task.delete');
-// Route::post('delete/{id}', [TaskController::class, 'destroy'])->name('task.delete');
 Route::put('edit/{id}', [TaskController::class, 'edit'])->name('task.edit');
 Route::patch('update/{id}', [TaskController::class, 'update'])->name('task.update');
 

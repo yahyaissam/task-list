@@ -76,7 +76,7 @@ class TaskController extends Controller
             ->update([
                 'name' => $request->name
             ]);
-        return view('front.update_task', compact('tasks'));
+        return view('front.update_tasks', compact('tasks'));
     }
 
     /**
